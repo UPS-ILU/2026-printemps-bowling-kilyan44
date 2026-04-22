@@ -22,13 +22,19 @@ public class GameTest {
 	
 	@Test
 	void iter2( ) {
-		roll(20);
+		roll(20,0);
 		assertEquals(0,game.score());
 	}
 	
-	private void roll(int i) {
-		for (int j = 0; j < i; j++) {
-			game.roll(i);
+	@Test
+	void iter3() {
+		roll(20,1);
+		assertEquals(20,game.score());
+	}
+	
+	private void roll(int tour,int score ) {
+		for (int j = 0; j < tour; j++) {
+			game.roll(score);
 		}
 	}
 }

@@ -1,27 +1,39 @@
 package tdd;
 
-
 public class Game {
 
-	private int score = 0;
-	private int roll = 0;
 	private int[] rolls = new int[21];
+	private int roll = 0;
 
 	public void roll(int nbQuille) {
-		rolls[roll] = nbQuille;
-		if (roll >= 2 && (rolls[roll - 1] + rolls[roll - 2] == 10 || roll > 2 && rolls[roll - 3] == 10)) {
-			rolls[roll] += nbQuille;
-		}
-		if (nbQuille == 10) {
-			rolls[++roll] = 0;
-		}
-		roll++;
+		rolls[roll++] = nbQuille;
 	}
 
 	public int score() {
-		for (int i = 0; i < rolls.length; i++) {
-			score += rolls[i];
+		int score = 0;
+		int i = 0;
+
+		for (int frame = 0; frame < 10; frame++) {
+
+			// 🎯 STRIKE
+			if (rolls[i] == 10) {
+				score += 10 + rolls[i + 1] + rolls[i + 2];
+				i += 1;
+			}
+
+			// 🎯 SPARE
+			else if (rolls[i] + rolls[i + 1] == 10) {
+				score += 10 + rolls[i + 2];
+				i += 2;
+			}
+
+			// 🎯 NORMAL
+			else {
+				score += rolls[i] + rolls[i + 1];
+				i += 2;
+			}
 		}
+
 		return score;
 	}
 }

@@ -82,7 +82,7 @@ public class GameTest {
 	}
 	
 	@Test
-	public void casGenie() {
+	public void casExtension() {
 		roll(1,1);
 		roll(1,2); 
 		roll(1,10);
@@ -104,6 +104,12 @@ public class GameTest {
 		roll(1,8);
 		roll(1,8);
 		assertEquals(131, game.score());
+	}
+	
+	@Test
+	public void casGenie() {
+		roll(12,10);
+		assertEquals(300, game.score());
 	}
 	
 	

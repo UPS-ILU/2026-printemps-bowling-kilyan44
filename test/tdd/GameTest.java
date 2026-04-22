@@ -81,6 +81,31 @@ public class GameTest {
 		assertEquals(122, game.score());
 	}
 	
+	@Test
+	public void casGenie() {
+		roll(1,1);
+		roll(1,2); 
+		roll(1,10);
+		roll(1,0);
+		roll(1,10);
+		roll(1,4);
+		roll(1,2);
+		roll(1,0);
+		roll(1,10);
+		roll(1,6);
+		roll(1,2);
+		roll(1,0);
+		roll(1,10);
+		roll(1,6);
+		roll(1,4);
+		roll(1,8);
+		roll(1,2);
+		roll(1,2);
+		roll(1,8);
+		roll(1,8);
+		assertEquals(131, game.score());
+	}
+	
 	
 	private void roll(int tour,int score ) {
 		for (int j = 0; j < tour; j++) {

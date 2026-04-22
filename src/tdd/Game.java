@@ -15,19 +15,19 @@ public class Game {
 
 		for (int frame = 0; frame < 10; frame++) {
 
-			// 🎯 STRIKE
+			// STRIKE
 			if (rolls[i] == 10) {
 				score += 10 + rolls[i + 1] + rolls[i + 2];
 				i += 1;
 			}
 
-			// 🎯 SPARE
+			// SPARE
 			else if (rolls[i] + rolls[i + 1] == 10) {
 				score += 10 + rolls[i + 2];
 				i += 2;
 			}
 
-			// 🎯 NORMAL
+			// NORMAL
 			else {
 				score += rolls[i] + rolls[i + 1];
 				i += 2;
